@@ -30,7 +30,7 @@ export const ChatInput = ({ onSendMessage, disabled = false, value, onChange }: 
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2 sm:space-y-3">
       {/* Suggested Prompts Toggle */}
       <div className="flex justify-center">
         <Button
@@ -38,17 +38,17 @@ export const ChatInput = ({ onSendMessage, disabled = false, value, onChange }: 
           variant="ghost"
           size="sm"
           onClick={() => setShowSuggestions(!showSuggestions)}
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground hover:text-foreground transition-colors text-xs sm:text-sm"
           disabled={disabled}
         >
-          <Lightbulb className="w-4 h-4 ml-2" />
-          <span className="text-sm">پرسش‌های پیشنهادی</span>
+          <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
+          <span>پرسش‌های پیشنهادی</span>
         </Button>
       </div>
 
       {/* Suggested Prompts Dropdown */}
       {showSuggestions && (
-        <div className="bg-card border border-primary/10 rounded-lg p-4 shadow-soft">
+        <div className="bg-card border border-primary/10 rounded-lg p-3 sm:p-4 shadow-soft max-h-60 overflow-y-auto">
           <SuggestedPrompts 
             onPromptClick={(prompt) => {
               onSendMessage(prompt);
@@ -66,16 +66,16 @@ export const ChatInput = ({ onSendMessage, disabled = false, value, onChange }: 
           onChange={handleInputChange}
           placeholder="سؤال خود را بپرسید..."
           disabled={disabled}
-          className="flex-1 text-right bg-background border-primary/20 focus:border-primary"
+          className="flex-1 text-right bg-background border-primary/20 focus:border-primary text-sm sm:text-base"
           dir="rtl"
         />
         <Button
           type="submit"
           size="icon"
           disabled={disabled || !inputValue.trim()}
-          className="bg-primary hover:bg-primary-glow shadow-soft"
+          className="bg-primary hover:bg-primary-glow shadow-soft h-9 w-9 sm:h-10 sm:w-10"
         >
-          <Send className="w-4 h-4" />
+          <Send className="w-3 h-3 sm:w-4 sm:h-4" />
         </Button>
       </form>
     </div>
