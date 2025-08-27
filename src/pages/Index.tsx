@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Header } from "@/components/Header";
 import { ChatMessage } from "@/components/ChatMessage";
 import { TypingIndicator } from "@/components/TypingIndicator";
-import { SuggestedPrompts } from "@/components/SuggestedPrompts";
 import { ChatInput } from "@/components/ChatInput";
 import { useChat } from "@/hooks/useChat";
 
@@ -46,14 +45,6 @@ const Index = () => {
               disabled={isTyping}
             />
           </div>
-        </div>
-
-        {/* Suggested Prompts */}
-        <div className="mt-6 bg-card rounded-xl shadow-soft border border-primary/10 p-6">
-          <SuggestedPrompts 
-            onPromptClick={sendMessage}
-            disabled={isTyping}
-          />
         </div>
       </div>
     </div>
